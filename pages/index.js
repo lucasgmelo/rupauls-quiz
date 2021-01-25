@@ -7,10 +7,7 @@ const Page = styled.div`
   position: relative;
 `
 
-const Bg = styled.div`
-  background-image: url(${db.bg});
-  background-size: cover;
-  position: absolute;
+const Img = styled.image`
   height: 100vh;
   width: 100vw;
 `
@@ -18,7 +15,7 @@ const Bg = styled.div`
 export default function Home() {
   return (
     <Page>
-      <Bg />
+      <Img src="../assets/Stars.png" alt="" />
       AAAAAAAA
     </Page>
   );
