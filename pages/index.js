@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import db from '../db.json'
+import Image from 'next/image'
 
 const Page = styled.div`
   height: 100vh;
@@ -7,15 +8,18 @@ const Page = styled.div`
   position: relative;
 `
 
-const Img = styled.image`
-  height: 100vh;
-  width: 100vw;
-`
+const Stars = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url('/Stars.png');
+  background-size: cover;
+  position: absolute;
+`;
 
 export default function Home() {
   return (
     <Page>
-      <Img src="../assets/Stars.png" alt="" />
+      <Stars />
       AAAAAAAA
     </Page>
   );
