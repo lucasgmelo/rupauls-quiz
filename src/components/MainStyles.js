@@ -86,9 +86,10 @@ export const Text = styled.h3`
 `;
 
 export const Detail = styled.p`
+    margin-top: 0;
     color: ${(props) => props.color || 'black'};
     font-size: 16px;
-    line-height: 27px;
+    font-weight: 400;
 `;
 
 export const QuizContainer = styled.div`
@@ -101,4 +102,8 @@ export const QuizContainer = styled.div`
     margin: auto;
     padding: 15px;
   }
+`;
+
+export const Form = styled.form`
+  max-width: 350;
 `;
