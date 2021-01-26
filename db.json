@@ -37,13 +37,13 @@
         "secondary": "#B791F9",
         "mainBg": "linear-gradient(142.62deg, #CE9FFC -43.31%, #7367F0 129.93%)",
         "btn": "linear-gradient(90.97deg, #7DD4DE 0%, #7DD4B2 143.73%);",
-        "btnDisabled": "linear-gradient(90.97deg, #74C9D2 0%, #76CAA9 143.73%);",
+        "btnDisabled": "linear-gradient(90.97deg, #7cD4DE 0%, #76cAA9 143.73%);",
         "purpleText": "#524081",
         "wrong": "linear-gradient(90.97deg, #F77171 0%, #E04A4A 143.73%);",
         "success": "linear-gradient(90.97deg, #8BDE7D 0%, #7DD48B 143.73%);"
       },
       "borderRadius": "4px",
-      "shadow": "3px 3px 6px rgba(0, 0, 0, 0.15)",
-      "shadowDisabled": "3px 3px 2px rgba(0, 0, 0, 0.15)"
+      "shadow": "3px 3px 8px rgba(0, 0, 0, 0.1)",
+      "shadowDisabled": "3px 3px 2px rgba(0, 0, 0, 0.08)"
     }
   }

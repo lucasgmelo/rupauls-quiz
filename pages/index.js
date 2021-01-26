@@ -6,7 +6,6 @@ import {
 } from '@chakra-ui/react';
 import db from '../db.json';
 import Widget from '../src/components/widget';
-import Footer from '../src/components/Footer';
 import GithubCorner from '../src/components/GithubCorner';
 import {
   Page,
@@ -64,10 +63,15 @@ export default function Home() {
                   Quizes da Galera
                   {' '}
                 </Title>
-                <Detail>Acesse outros quizes desenvolvidos durante a Imersão!</Detail>
+                <Detail>
+                  Acesse outros quizes desenvolvidos durante a
+                  <i> 2ª Imersão Alura!</i>
+                </Detail>
+                <Widget.Select>umquizaqui.vercel.app</Widget.Select>
+                <Widget.Select>outroquizaqui.vercel.app</Widget.Select>
+                <Widget.Select>outroquizaqui.vercel.app</Widget.Select>
               </Widget.Content>
             </Widget>
-            <Footer />
           </QuizContainer>
         </GridItem>
         {web && (
