@@ -29,7 +29,7 @@ export default function Home() {
         </Widget>
         <Footer />
         </QuizContainer>
-      <GithubCorner projectUrl=""/>
+      <GithubCorner projectUrl="https://github.com/lucasgmelo"/>
     </Page>
   );
 }
