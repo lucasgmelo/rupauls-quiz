@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import db from '../db.json'
+import Head from 'next/head'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -31,6 +32,13 @@ const theme = db.theme;
 export default function App({ Component, pageProps }) {
   return (
     <>
+    <Head>
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+      <meta property="OG TAG" content="/OG.png"></meta>
+      <title>Quiz | Rupaul's Drag Race</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
       <ThemeProvider theme={theme}>
       <GlobalStyle />
         <Component {...pageProps} />

@@ -2,15 +2,20 @@ import db from '../db.json'
 import {Widget} from '../src/components/widget'
 import Footer from '../src/components/Footer'
 import GithubCorner from '../src/components/GithubCorner'
-import {Page, Stars, QuizContainer, Title, Subtitle, Text, Detail, Logo, Man} from '../src/components/MainStyles' 
+import {Page, Stars, QuizContainer, Title, Subtitle, Text, Detail, Logo, Man} from '../src/components/MainStyles'
+import { Grid, GridItem, Image, Flex } from "@chakra-ui/react"
+import useMedia from '../hooks/useMedia'
 
 export default function Home() {
+  const web = useMedia('(min-width: 1080px)');
+
   return (
     <Page>
       <Man />
       <Stars />
+      <Grid>
+        <GridItem>
         <QuizContainer>
-        {/* <Logo /> */}
         <Widget>
           <Widget.Header>
             <Title>Rupaul's Drag Race Quiz</Title>
@@ -29,6 +34,26 @@ export default function Home() {
         </Widget>
         <Footer />
         </QuizContainer>
+        </GridItem>
+        {web && <GridItem 
+        colStart={2} 
+        boxSize="100%"
+         >
+           <Flex
+        justifyContent="center"
+        alignItems="center"
+        boxSize="100%"
+        >
+          <Image src={db.logo} alt="logo"
+          width="75%"
+          maxWidth="600px"
+          top="50%"
+          />
+        </Flex>
+        </GridItem>
+        }
+      </Grid>
+        
       <GithubCorner projectUrl="https://github.com/lucasgmelo"/>
     </Page>
   );
