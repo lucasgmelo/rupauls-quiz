@@ -36,6 +36,9 @@ export default function App({ Component, pageProps }) {
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
       <meta property="og:image" content="/OG.png"></meta>
+      <meta property="og:title" content="Quiz | Rupaul's Drag Race"></meta>
+      <meta property="og:description" content="Um quiz sobre um dos maiores reality shows do mundo."></meta>
+
       <title>Quiz | Rupaul's Drag Race</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
