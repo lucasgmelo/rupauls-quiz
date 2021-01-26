@@ -29,7 +29,7 @@ export default function Home() {
         </Widget>
         <Footer />
         </QuizContainer>
-      <GithubCorner projectUrl="https://github.com/lucasgmelo/rpdr-quiz"/>
+      <GithubCorner projectUrl=""/>
     </Page>
   );
 }
