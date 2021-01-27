@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { useRouter } from 'next/router';
 import {
   Grid, GridItem, Image, Flex,
@@ -17,19 +17,29 @@ import QuestionWidget from '../src/components/QuestionWidget';
 import useMedia from '../hooks/useMedia';
 import LoadingPage from '../src/components/LoadingPage';
 
-const screenState = {
-  QUIZ: 'QUIZ',
-  LOADING: 'LOADING',
-  RESULT: 'RESULT',
-};
-
 export default function QuizPage() {
-  const [screen, setScreen] = useState('LOADING');
+  const [screenState, setScreenState] = useState('LOADING');
   const web = useMedia('(min-width: 1080px)');
   const totalQuestions = db.questions.length;
-  const questionIndex = 1;
+  const [currentQuestion, setcurrentQuestion] = useState(0);
+  const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
   // const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setScreenState('QUIZ');
+    }, 1.2 * 1000);
+  }, []);
+
+  function handleSubmit() {
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion < totalQuestions) {
+      setcurrentQuestion(questionIndex + 1);
+    } else {
+      setScreenState('RESULT');
+    }
+  }
 
   return (
     <Page>
@@ -38,20 +48,21 @@ export default function QuizPage() {
       <Grid>
         <GridItem>
           <QuizContainer>
-            {screen === screenState.LOADING && <LoadingPage />}
+            {screenState === 'LOADING' && <LoadingPage />}
 
-            {screen === screenState.QUIZ && (
+            {screenState === 'QUIZ' && (
             <QuestionWidget
               question={question}
               totalQuestions={totalQuestions}
               questionIndex={questionIndex}
+              onSubmit={handleSubmit}
             />
             )}
 
-            {screen === screenState.RESULT && ''}
+            {screenState === 'RESULT' && <h1>olaaa</h1>}
           </QuizContainer>
         </GridItem>
-        {web && (
+        {web && !(screenState === 'LOADING') && (
           <GridItem colStart={2} boxSize="100%">
             <Flex justifyContent="center" alignItems="center" boxSize="100%">
               <Image

@@ -10,7 +10,9 @@ import {
   Detail,
 } from '../MainStyles';
 
-export default function QuestionWidget({ question, totalQuestions, questionIndex }) {
+export default function QuestionWidget({
+  question, totalQuestions, questionIndex, onSubmit,
+}) {
   const router = useRouter();
   const questionId = `question__${questionIndex}`;
   return (
@@ -41,7 +43,12 @@ export default function QuestionWidget({ question, totalQuestions, questionIndex
         <Widget.Content>
           <Text>{question.title}</Text>
           <Detail>{question.description}</Detail>
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSubmit();
+            }}
+          >
             {question.alternatives.map((alternative, alternativeIndex) => {
               const alternativeId = `alternative__${alternativeIndex}`;
               return (
