@@ -67,7 +67,6 @@ export const Logo = styled.div`
 
 export const Title = styled.h1`
   color: ${(props) => props.color};
-  line-height: 33px;
   font-size: 20px;
   font-weight: 600;
 `;
@@ -79,16 +78,16 @@ export const Subtitle = styled.h2`
 `;
 
 export const Text = styled.h3`
-  color: ${(props) => props.color};
+  color: ${(props) => props.color || 'black'};
   font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 16px;
+  margin-top: 0;
 `;
 
 export const Detail = styled.p`
     margin-top: 0;
     color: ${(props) => props.color || 'black'};
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
 `;
 

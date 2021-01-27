@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import {
   Grid, GridItem, Image, Flex,
 } from '@chakra-ui/react';
+import Input from '../src/components/Input';
 import db from '../db.json';
 import Widget from '../src/components/widget';
 import GithubCorner from '../src/components/GithubCorner';
@@ -12,7 +13,7 @@ import {
   Stars,
   QuizContainer,
   Title,
-  Detail,
+  Text,
   Man,
 } from '../src/components/MainStyles';
 import useMedia from '../hooks/useMedia';
@@ -40,16 +41,15 @@ export default function Home() {
                     router.push(`/quiz?name=${name}`);
                   }}
                 >
-                  <Detail>
+                  <Text>
                     E aí, conhece mesmo sobre Rupaul&apos;s?
                     <i>This is your last chance to impress me.</i>
-                  </Detail>
-                  <Widget.Input
-                    type="text"
+                  </Text>
+                  <Input
+                    name="nomeDoUsuario"
                     placeholder="Qual é o teu nome?"
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
                   />
                   <Widget.Button type="submit" disabled={name.length === 0} upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
                     jogar
@@ -63,10 +63,10 @@ export default function Home() {
                   Quizes da Galera
                   {' '}
                 </Title>
-                <Detail>
+                <Text>
                   Acesse outros quizes desenvolvidos durante a
                   <i> 2ª Imersão Alura!</i>
-                </Detail>
+                </Text>
                 <Widget.Select>umquizaqui.vercel.app</Widget.Select>
                 <Widget.Select>outroquizaqui.vercel.app</Widget.Select>
                 <Widget.Select>outroquizaqui.vercel.app</Widget.Select>

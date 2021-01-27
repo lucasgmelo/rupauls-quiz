@@ -70,35 +70,15 @@ Widget.Button = styled.button`
   outline: none;
 
   &:hover {
-    transform: ${(props) => (props.disabled ? '' : 'translateY(-2px)')};
+    transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
     background: ${(props) => (props.disabled ? '' : 'linear-gradient(90.8deg, #7DD4B2 -33.3%, #7DD4DE 104.64%);')}; 
   }
 
   &:active {
-    transform: translateY(-1px);
+    transform: translateY(0px);
     opacity: 0.9;
   }
 
-`;
-
-Widget.Input = styled.input`
-  width: 100%;
-  height: 30px;
-
-  border-radius: 4px;
-
-  border: 1.5px solid #524081;
-  outline: none;
-
-  padding: .6rem;
-
-  font-family: 'Source Sans Pro', sans-serif;
-
-  transition: all .3s ease;
-
-  &:active, &:focus {
-    transform: translateY(-1px);
-  }
 `;
 
 Widget.Select = styled.button`
@@ -109,7 +89,7 @@ cursor: ${(props) => (props.disabled ? '' : 'pointer')};
   width: 100%;
   height: 30px;
 
-  margin: 15px 0 0 0;
+  margin: 7px 0 0 0;
 
   border-radius: 4px;
   border: none;

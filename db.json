@@ -2,19 +2,17 @@
     "bg": "/Stars.png",
     "men": "/Men.png",
     "logo": "/Logo.png",
-    "title": "Quiz CSS da Alura",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "questions": [
       {
-        "image": "assets/img.png",
-        "title": "Quando se iniciou a 13ª temporada?",
-        "description": "Essa é pra aquecer",
+        "image": "/q1.jpeg",
+        "title": "Qual é a vencedora com o melhor histórico?",
+        "description": "Considere apenas as temporadas regulares.",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Violet Chachki",
+          "Bianca Del Rio",
+          "Bob The Drag Queen",
+          "Sasha Velour"
         ]
       },
       {
