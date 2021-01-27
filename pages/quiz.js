@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useState } from 'react';
 // import { useRouter } from 'next/router';
 import {
   Grid, GridItem, Image, Flex,
@@ -14,8 +15,16 @@ import {
 } from '../src/components/MainStyles';
 import QuestionWidget from '../src/components/QuestionWidget';
 import useMedia from '../hooks/useMedia';
+import LoadingPage from '../src/components/LoadingPage';
 
-export default function Home() {
+const screenState = {
+  QUIZ: 'QUIZ',
+  LOADING: 'LOADING',
+  RESULT: 'RESULT',
+};
+
+export default function QuizPage() {
+  const [screen, setScreen] = useState('LOADING');
   const web = useMedia('(min-width: 1080px)');
   const totalQuestions = db.questions.length;
   const questionIndex = 1;
@@ -29,7 +38,17 @@ export default function Home() {
       <Grid>
         <GridItem>
           <QuizContainer>
-            <QuestionWidget question={question} totalQuestions={totalQuestions} questionIndex={questionIndex} />
+            {screen === screenState.LOADING && <LoadingPage />}
+
+            {screen === screenState.QUIZ && (
+            <QuestionWidget
+              question={question}
+              totalQuestions={totalQuestions}
+              questionIndex={questionIndex}
+            />
+            )}
+
+            {screen === screenState.RESULT && ''}
           </QuizContainer>
         </GridItem>
         {web && (

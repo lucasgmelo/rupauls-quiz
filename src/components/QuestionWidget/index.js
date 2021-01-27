@@ -12,6 +12,7 @@ import {
 
 export default function QuestionWidget({ question, totalQuestions, questionIndex }) {
   const router = useRouter();
+  const questionId = `question__${questionIndex}`;
   return (
     <>
       <Widget>
@@ -27,13 +28,7 @@ export default function QuestionWidget({ question, totalQuestions, questionIndex
             }}
           />
           <Title>
-            Pergunta
-            {' '}
-            {questionIndex + 1}
-            {' '}
-            de
-            {' '}
-            {totalQuestions}
+            {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
           </Title>
         </Widget.Header>
         <Image
@@ -46,12 +41,28 @@ export default function QuestionWidget({ question, totalQuestions, questionIndex
         <Widget.Content>
           <Text>{question.title}</Text>
           <Detail>{question.description}</Detail>
-          {question.alternatives.map((option) => (
-            <Widget.Select key={option}>{option}</Widget.Select>
-          ))}
-          <Widget.Button type="submit" upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
-            confirmar
-          </Widget.Button>
+          <form>
+            {question.alternatives.map((alternative, alternativeIndex) => {
+              const alternativeId = `alternative__${alternativeIndex}`;
+              return (
+                <Widget.Select
+                  as="label"
+                  htmlFor={alternativeId}
+                >
+                  {alternative}
+                  <input
+                    style={{ display: 'none' }}
+                    id={alternativeId}
+                    name={questionId}
+                    type="radio"
+                  />
+                </Widget.Select>
+              );
+            })}
+            <Widget.Button type="submit" upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
+              confirmar
+            </Widget.Button>
+          </form>
         </Widget.Content>
       </Widget>
     </>

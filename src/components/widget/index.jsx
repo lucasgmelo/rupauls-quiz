@@ -6,6 +6,8 @@ const Widget = styled.div`
   margin: 24px 0;
 
   border: 2px solid ${({ theme }) => theme.colors.primary};
+  border-color: ${(props) => props.border || db.theme.colors.primary};
+
   border-radius: ${db.theme.borderRadius};
 
   background-color: #f1f1f1;
@@ -18,7 +20,7 @@ Widget.Header = styled.header`
   justify-content: flex-start;
   align-items: center;
   padding: 18px 32px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${(props) => props.bg || db.theme.colors.primary};
 
   * {
     margin: 0;
@@ -81,15 +83,17 @@ Widget.Button = styled.button`
 
 `;
 
-Widget.Select = styled.button`
+Widget.Select = styled.a`
 
-cursor: ${(props) => (props.disabled ? '' : 'pointer')};
   box-shadow: ${db.theme.shadow};
+
+  text-decoration: none;
+  display: block;
  
   width: 100%;
-  height: 30px;
 
-  margin: 7px 0 0 0;
+  margin: 0 0 7px 0;
+  padding: 10px 15px;
 
   border-radius: 4px;
   border: none;
@@ -103,6 +107,11 @@ cursor: ${(props) => (props.disabled ? '' : 'pointer')};
 
   transition: all .3s ease;
   outline: none;
+  cursor: 'pointer';
+
+  input {
+    cursor: 'pointer';
+  }
 
   &:hover {
     transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
