@@ -9,6 +9,7 @@ import {
   Text,
   Detail,
 } from '../MainStyles';
+import AlternativesForm from './styles';
 
 export default function QuestionWidget({
   question, totalQuestions, questionIndex, onSubmit, addResult,
@@ -48,7 +49,7 @@ export default function QuestionWidget({
         <Widget.Content>
           <Text>{question.title}</Text>
           <Detail>{question.description}</Detail>
-          <form
+          <AlternativesForm
             onSubmit={(e) => {
               e.preventDefault();
               setIsFormSubmited(true);
@@ -62,13 +63,19 @@ export default function QuestionWidget({
           >
             {question.alternatives.map((alternative, alternativeIndex) => {
               const alternativeId = `alternative__${alternativeIndex}`;
+              const alternativeStatus = isCorrect ? 'SUCESS' : 'ERROR';
+              const isSelected = selectedAlternative === alternativeIndex;
+
               return (
                 <Widget.Select
                   as="label"
                   htmlFor={alternativeId}
                   key={alternativeId}
+                  data-selected={isSelected}
+                  data-status={isFormSubmited && alternativeStatus}
                 >
                   <input
+                    style={{ display: 'none' }}
                     id={alternativeId}
                     name={questionId}
                     type="radio"
@@ -86,7 +93,7 @@ export default function QuestionWidget({
 
             {isFormSubmited && isCorrect && <p>acertou</p> }
             {isFormSubmited && !isCorrect && <p>nao acertou</p> }
-          </form>
+          </AlternativesForm>
         </Widget.Content>
       </Widget>
     </>
