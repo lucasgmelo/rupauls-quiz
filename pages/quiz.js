@@ -16,10 +16,11 @@ import {
 import QuestionWidget from '../src/components/QuestionWidget';
 import useMedia from '../hooks/useMedia';
 import LoadingPage from '../src/components/LoadingPage';
+import ResultPage from '../src/components/ResultPage';
 
 export default function QuizPage() {
   const [screenState, setScreenState] = useState('RESULT');
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState([true, false, true]);
   const web = useMedia('(min-width: 1080px)');
   const totalQuestions = db.questions.length;
   const [currentQuestion, setcurrentQuestion] = useState(0);
@@ -67,7 +68,7 @@ export default function QuizPage() {
             />
             )}
 
-            {screenState === 'RESULT' && <h1>olaaa</h1>}
+            {screenState === 'RESULT' && <ResultPage results={results} />}
           </QuizContainer>
         </GridItem>
         {web && !(screenState === 'LOADING') && (
