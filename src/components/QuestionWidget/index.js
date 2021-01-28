@@ -8,6 +8,8 @@ import {
   Title,
   Text,
   Detail,
+  Success,
+  Error,
 } from '../MainStyles';
 import AlternativesForm from './styles';
 
@@ -91,8 +93,8 @@ export default function QuestionWidget({
             </Widget.Button>
             )}
 
-            {isFormSubmited && isCorrect && <p>acertou</p> }
-            {isFormSubmited && !isCorrect && <p>nao acertou</p> }
+            {isFormSubmited && isCorrect && <Success><img src="/ok.png" alt="Correto" /></Success> }
+            {isFormSubmited && !isCorrect && <Error><img src="/no.png" alt="Errado" /></Error> }
           </AlternativesForm>
         </Widget.Content>
       </Widget>

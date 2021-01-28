@@ -104,5 +104,55 @@ export const QuizContainer = styled.div`
 `;
 
 export const Form = styled.form`
-  max-width: 350;
+  max-width: 350px;
+`;
+
+export const Success = styled.div`
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  position: relative;
+
+  margin-top: 20px;
+
+  justify-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(90.97deg, #8BDE7D 0%, #7DD48B 143.73%);
+
+  &:after {
+    content:'';
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    background: linear-gradient(90.97deg, rgba(139, 222, 125, 0.5) 0%, rgba(125, 212, 139, 0.5) 143.73%);
+
+  }
+`;
+
+export const Error = styled.div`
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  margin-top: 20px;
+
+  justify-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  border: 4px solid #F67171;
 `;

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const AlternativesForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   label {
     &[data-selected="true"] {
       background-color: #B791F9;
