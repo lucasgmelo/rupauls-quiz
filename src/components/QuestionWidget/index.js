@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import db from '../../../db.json';
@@ -15,6 +15,11 @@ export default function QuestionWidget({
 }) {
   const router = useRouter();
   const questionId = `question__${questionIndex}`;
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const [isFormSubmited, setIsFormSubmited] = useState(false);
+  const isCorrect = selectedAlternative === question.answer;
+  const hasAlternativeSelected = selectedAlternative !== undefined;
+
   return (
     <>
       <Widget>
@@ -46,7 +51,12 @@ export default function QuestionWidget({
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              onSubmit();
+              setIsFormSubmited(true);
+              setTimeout(() => {
+                onSubmit();
+                setIsFormSubmited(false);
+                setSelectedAlternative(undefined);
+              }, 3 * 1000);
             }}
           >
             {question.alternatives.map((alternative, alternativeIndex) => {
@@ -55,20 +65,26 @@ export default function QuestionWidget({
                 <Widget.Select
                   as="label"
                   htmlFor={alternativeId}
+                  key={alternativeId}
                 >
-                  {alternative}
                   <input
-                    style={{ display: 'none' }}
                     id={alternativeId}
                     name={questionId}
                     type="radio"
+                    onChange={() => setSelectedAlternative(alternativeIndex)}
                   />
+                  {alternative}
                 </Widget.Select>
               );
             })}
-            <Widget.Button type="submit" upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
+            {!isFormSubmited && (
+            <Widget.Button type="submit" disabled={!hasAlternativeSelected} upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
               confirmar
             </Widget.Button>
+            )}
+
+            {isFormSubmited && isCorrect && <p>acertou</p> }
+            {isFormSubmited && !isCorrect && <p>nao acertou</p> }
           </form>
         </Widget.Content>
       </Widget>
