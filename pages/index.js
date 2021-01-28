@@ -69,7 +69,7 @@ export default function Home() {
                 </Text>
                 <Widget.Select>umquizaqui.vercel.app</Widget.Select>
                 <Widget.Select>outroquizaqui.vercel.app</Widget.Select>
-                <Widget.Select>outroquizaqui.vercel.app</Widget.Select>
+                <Widget.Select>outroquizaquie.vercel.app</Widget.Select>
               </Widget.Content>
             </Widget>
           </QuizContainer>
