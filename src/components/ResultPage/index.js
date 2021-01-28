@@ -32,10 +32,22 @@ export default function ResultPage({ results }) {
         </Widget.Header>
         <Widget.Content>
           <Text>Mandou bem, Lucas!</Text>
-          <Title color={db.theme.colors.purpleText}>Você fez 400 pontos, parabéns!</Title>
+          <Title color={db.theme.colors.purpleText}>
+            Você acertou
+            {' '}
+            {results.reduce((somatoriaAtual, resultAtual) => {
+              const isWright = resultAtual === true;
+              if (isWright) {
+                return somatoriaAtual + 1;
+              }
+              return somatoriaAtual;
+            }, 0)}
+            {' '}
+            questões, parabéns!
+          </Title>
           {results.map((result, index) => (
             <ul>
-              <li>
+              <li key={result}>
                 #
                 {index + 1}
                 {' '}

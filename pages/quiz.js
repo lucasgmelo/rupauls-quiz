@@ -19,23 +19,25 @@ import LoadingPage from '../src/components/LoadingPage';
 import ResultPage from '../src/components/ResultPage';
 
 export default function QuizPage() {
-  const [screenState, setScreenState] = useState('RESULT');
-  const [results, setResults] = useState([true, false, true]);
+  const [screenState, setScreenState] = useState('LOADING');
+  const [results, setResults] = useState([]);
   const web = useMedia('(min-width: 1080px)');
   const totalQuestions = db.questions.length;
   const [currentQuestion, setcurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
-  const [check, setCheck] = useState(false);
 
-  function onChecked() {
-    setCheck(true);
+  function addResult(result) {
+    setResults([
+      ...results,
+      result,
+    ]);
   }
   // const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
-      // setScreenState('QUIZ');
+      setScreenState('QUIZ');
     }, 1.2 * 1000);
   }, []);
 
@@ -63,8 +65,7 @@ export default function QuizPage() {
               totalQuestions={totalQuestions}
               questionIndex={questionIndex}
               onSubmit={handleSubmit}
-              onChecked={onChecked}
-              check={check}
+              addResult={addResult}
             />
             )}
 

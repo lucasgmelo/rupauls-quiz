@@ -11,7 +11,7 @@ import {
 } from '../MainStyles';
 
 export default function QuestionWidget({
-  question, totalQuestions, questionIndex, onSubmit,
+  question, totalQuestions, questionIndex, onSubmit, addResult,
 }) {
   const router = useRouter();
   const questionId = `question__${questionIndex}`;
@@ -53,6 +53,7 @@ export default function QuestionWidget({
               e.preventDefault();
               setIsFormSubmited(true);
               setTimeout(() => {
+                addResult(isCorrect);
                 onSubmit();
                 setIsFormSubmited(false);
                 setSelectedAlternative(undefined);
