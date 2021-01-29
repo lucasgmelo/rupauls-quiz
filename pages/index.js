@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import {
   Grid, GridItem, Image, Flex,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import Input from '../src/components/Input';
 import db from '../db.json';
 import Widget from '../src/components/widget';
@@ -26,12 +27,30 @@ export default function Home() {
 
   return (
     <Page>
-      <Man />
+      <Man
+        as={motion.div}
+        transition={{ delay: 1, duration: 0.15 }}
+        variants={{
+          show: { y: '0' },
+          hidden: { y: '-100vh' },
+        }}
+        initial="hidden"
+        animate="show"
+      />
       <Stars bgImg={db.bg} />
       <Grid>
         <GridItem>
           <QuizContainer>
-            <Widget>
+            <Widget
+              as={motion.section}
+              transition={{ duration: 0.5 }}
+              variants={{
+                show: { opacity: 1, y: '0' },
+                hidden: { opacity: 0, y: '100%' },
+              }}
+              initial="hidden"
+              animate="show"
+            >
               <Widget.Header>
                 <Title>Rupaul&apos;s Drag Race Quiz</Title>
               </Widget.Header>
@@ -58,7 +77,16 @@ export default function Home() {
                 </Widget.Form>
               </Widget.Content>
             </Widget>
-            <Widget>
+            <Widget
+              as={motion.section}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              variants={{
+                show: { opacity: 1 },
+                hidden: { opacity: 0 },
+              }}
+              initial="hidden"
+              animate="show"
+            >
               <Widget.Content>
                 <Title color={db.theme.colors.purpleText}>
                   Quizes da Galera
@@ -83,7 +111,18 @@ export default function Home() {
           </QuizContainer>
         </GridItem>
         {web && (
-          <GridItem colStart={2} boxSize="100%">
+          <GridItem
+            colStart={2}
+            boxSize="100%"
+            as={motion.section}
+            transition={{ duration: 0.5 }}
+            variants={{
+              show: { opacity: 1 },
+              hidden: { opacity: 0 },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Flex justifyContent="center" alignItems="center" boxSize="100%">
               <Image
                 src={db.logo}
