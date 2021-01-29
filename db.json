@@ -1,7 +1,7 @@
 {
-    "bg": "/Stars.png",
-    "men": "/Men.png",
-    "logo": "/Logo.png",
+    "bg": "https://raw.githubusercontent.com/lucasgmelo/rupauls-quiz/main/public/Landing.png",
+    "men": "https://raw.githubusercontent.com/lucasgmelo/rupauls-quiz/main/public/Men.png",
+    "logo": "https://raw.githubusercontent.com/lucasgmelo/rupauls-quiz/main/public/Logo.png",
     "questions": [
       {
         "image": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1810&h=905&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2020%2F07%2F25%2Fshea-coulee.jpg",

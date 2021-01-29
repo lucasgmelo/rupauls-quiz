@@ -55,7 +55,7 @@ export default function QuizScreen({ dbExterno }) {
   }
 
   return (
-    <Page none="transparent">
+    <Page none="">
       <Stars bgImg={dbExterno.bg} />
       <QuizContainer>
         {screenState === 'LOADING' && <LoadingPage />}
