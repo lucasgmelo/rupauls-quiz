@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import {
   Grid, GridItem, Image, Flex,
 } from '@chakra-ui/react';
-import Input from '../src/components/Input';
-import db from '../db.json';
-import Widget from '../src/components/widget';
-import GithubCorner from '../src/components/GithubCorner';
+import Input from '../../src/components/Input';
+import db from '../../db.json';
+import Widget from '../../src/components/widget';
+import GithubCorner from '../../src/components/GithubCorner';
 import {
   Page,
   Stars,
@@ -15,8 +15,8 @@ import {
   Title,
   Text,
   Man,
-} from '../src/components/MainStyles';
-import useMedia from '../hooks/useMedia';
+} from '../../src/components/MainStyles';
+import useMedia from '../../hooks/useMedia';
 
 export default function Home() {
   const web = useMedia('(min-width: 1080px)');

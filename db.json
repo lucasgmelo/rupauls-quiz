@@ -4,7 +4,7 @@
     "logo": "/Logo.png",
     "questions": [
       {
-        "image": "/q1.jpeg",
+        "image": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1810&h=905&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2020%2F07%2F25%2Fshea-coulee.jpg",
         "title": "Qual é a vencedora com o melhor histórico?",
         "description": "Considere apenas as temporadas regulares.",
         "answer": 1,
@@ -89,7 +89,7 @@
       }
     ],
     "external": [
-      ""
+      "https://rpdr-quiz.lucasgmelo.vercel.app/"
     ],
     "theme": {
       "colors": {
