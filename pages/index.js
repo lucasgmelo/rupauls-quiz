@@ -17,6 +17,7 @@ import {
   Man,
 } from '../src/components/MainStyles';
 import useMedia from '../hooks/useMedia';
+import Link from '../src/components/Link';
 
 export default function Home() {
   const web = useMedia('(min-width: 1080px)');
@@ -26,7 +27,7 @@ export default function Home() {
   return (
     <Page>
       <Man />
-      <Stars />
+      <Stars bgImg={db.bg} />
       <Grid>
         <GridItem>
           <QuizContainer>
@@ -72,7 +73,7 @@ export default function Home() {
                     const [projectName, githubUser] = linkExterno.replace(/\//g, '').replace('https:', '').replace('.vercel.app', '').split('.');
                     return (
                       <li key={linkExterno}>
-                        <Widget.Select href={`/quiz/${projectName}___${githubUser}`} bg={db.theme.colors.primary}>{`${githubUser}/${projectName}`}</Widget.Select>
+                        <Widget.Select as={Link} href={`/quiz/${projectName}___${githubUser}`}>{`${githubUser}/${projectName}`}</Widget.Select>
                       </li>
                     );
                   })}

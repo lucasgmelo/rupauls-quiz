@@ -14,23 +14,23 @@ export default function OtherQuiz({ dbExterno }) {
 
 export async function getServerSideProps(context) {
   const [projectName, githubUser] = context.query.id.split('___');
-  const dbExterno = await fetch(`https://${projectName}.${githubUser}.vercel.app/api/db`)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error('Falha ao obter dados');
-    })
-    .then((responseObject) => responseObject);
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
 
-  // console.log(dbExterno);
+  try {
+    const dbExterno = await fetch(`https://${projectName}.${githubUser}.vercel.app/api/db`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Falha ao obter dados');
+      })
+      .then((responseObject) => responseObject);
 
-  return {
-    props: {
-      dbExterno,
-    },
-  };
+    return {
+      props: {
+        dbExterno,
+      },
+    };
+  } catch (err) {
+    throw new Error(err);
+  }
 }
