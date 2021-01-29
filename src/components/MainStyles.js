@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import db from '../../db.json';
 
 export const Page = styled.div`
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background: linear-gradient(142.62deg, #CE9FFC -43.31%, #7367F0 129.93%);
   position: relative;
   z-index: 1;
@@ -10,7 +11,7 @@ export const Page = styled.div`
 
 export const Stars = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: url(${db.bg});
   background-size: cover;
   position: absolute;

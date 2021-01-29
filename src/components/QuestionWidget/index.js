@@ -45,7 +45,7 @@ export default function QuestionWidget({
           src={question.image}
           alt="Rupaul em uma foto com várias vencedoras do reality."
           width="100%"
-          height="150px"
+          height="180px"
           objectFit="cover"
         />
         <Widget.Content>
