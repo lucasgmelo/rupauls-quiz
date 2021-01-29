@@ -89,7 +89,8 @@
       }
     ],
     "external": [
-      "https://rpdr-quiz.lucasgmelo.vercel.app/"
+      "https://rpdr-quiz.lucasgmelo.vercel.app/",
+      "https://alura-quiz-avengers.fernanda-kipper.vercel.app/"
     ],
     "theme": {
       "colors": {

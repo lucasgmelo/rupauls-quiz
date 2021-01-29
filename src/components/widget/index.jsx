@@ -83,6 +83,41 @@ Widget.Button = styled.button`
 
 `;
 
+Widget.ButtonExternal = styled.button`
+
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  box-shadow: ${(props) => (props.disabled ? `${db.theme.shadowDisabled}` : `${db.theme.shadow}`)};
+ 
+  width: 100%;
+  height: 30px;
+
+  margin: 15px 0 0 0;
+
+  border-radius: 4px;
+  border: none;
+
+  text-transform: ${(props) => props.upper || 'none'};
+  letter-spacing: ${(props) => props.letter || 'none'};
+
+  color: ${(props) => props.color || 'white'};
+
+  background: ${(props) => props.theme.colors.primary};
+
+  transition: all .3s ease;
+  outline: none;
+
+  &:hover {
+    transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
+    background: ${(props) => props.theme.colors.secondary};
+  }
+
+  &:active {
+    transform: translateY(0px);
+    opacity: 0.9;
+  }
+
+`;
+
 Widget.Select = styled.a`
 
   box-shadow: ${db.theme.shadow};
@@ -103,7 +138,7 @@ Widget.Select = styled.a`
 
   color: ${(props) => props.color || 'white'};
 
-  background: ${({ theme }) => `${theme.colors.primary}`};
+  background: ${(props) => `${props.other.theme.colors.primary}` || `${props.theme.colors.primary}`};
 
   transition: all .3s ease;
   outline: none;
@@ -115,7 +150,7 @@ Widget.Select = styled.a`
 
   &:hover {
     transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
-    background: #B791F9;
+    background: ${(props) => (props.other ? `${props.other.theme.colors.secondary}` : '#B791F9')};
   }
 `;
 

@@ -59,7 +59,6 @@ export default function QuizScreen({ dbExterno }) {
       <Stars bgImg={dbExterno.bg} />
       <QuizContainer>
         {screenState === 'LOADING' && <LoadingPage />}
-
         {screenState === 'QUIZ' && (
         <QuestionWidget
           question={question}
@@ -67,6 +66,7 @@ export default function QuizScreen({ dbExterno }) {
           questionIndex={questionIndex}
           onSubmit={handleSubmit}
           addResult={addResult}
+          other={dbExterno}
         />
         )}
 

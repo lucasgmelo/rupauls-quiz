@@ -14,7 +14,7 @@ import {
 import AlternativesForm from './styles';
 
 export default function QuestionWidget({
-  question, totalQuestions, questionIndex, onSubmit, addResult,
+  question, totalQuestions, questionIndex, onSubmit, addResult, other,
 }) {
   const router = useRouter();
   const questionId = `question__${questionIndex}`;
@@ -25,8 +25,8 @@ export default function QuestionWidget({
 
   return (
     <>
-      <Widget>
-        <Widget.Header>
+      <Widget border={other.theme.colors.primary}>
+        <Widget.Header bg={other.theme.colors.primary}>
           <Image
             src="/Back.png"
             alt="Voltar"
@@ -52,6 +52,7 @@ export default function QuestionWidget({
           <Text>{question.title}</Text>
           <Detail>{question.description}</Detail>
           <AlternativesForm
+            bg={other.theme.colors.secondary}
             onSubmit={(e) => {
               e.preventDefault();
               setIsFormSubmited(true);
@@ -75,6 +76,7 @@ export default function QuestionWidget({
                   key={alternativeId}
                   data-selected={isSelected}
                   data-status={isFormSubmited && alternativeStatus}
+                  other={other}
                 >
                   <input
                     style={{ display: 'none' }}
@@ -87,10 +89,15 @@ export default function QuestionWidget({
                 </Widget.Select>
               );
             })}
-            {!isFormSubmited && (
+            {!isFormSubmited && !other && (
             <Widget.Button type="submit" disabled={!hasAlternativeSelected} upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
               confirmar
             </Widget.Button>
+            )}
+            {!isFormSubmited && other && (
+            <Widget.ButtonExternal type="submit" disabled={!hasAlternativeSelected} upper="uppercase" letter="0.1rem" color={db.theme.colors.contrastText} bg={db.theme.colors.primary}>
+              confirmar
+            </Widget.ButtonExternal>
             )}
 
             {isFormSubmited && isCorrect && <Success><img src="/ok.png" alt="Correto" /></Success> }

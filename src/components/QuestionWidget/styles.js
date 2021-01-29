@@ -6,7 +6,7 @@ const AlternativesForm = styled.form`
   align-items: center;
   label {
     &[data-selected="true"] {
-      background-color: #B791F9;
+      background-color: ${(props) => props.bg || '#B791F9'};
       
       &[data-status="SUCCESS"] {
         background: linear-gradient(90.97deg, #8BDE7D 0%, #7DD48B 143.73%);

@@ -12,7 +12,7 @@ export const Page = styled.div`
 export const Stars = styled.div`
   width: 100%;
   height: 100%;
-  background-image: ${(props) => props.bgImg || `url(${db.bg})`};
+  background-image: ${(props) => `url(${props.bgImg})` || `url(${db.bg})`};
   background-size: cover;
   position: absolute;
   z-index: -1;
