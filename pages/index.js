@@ -72,7 +72,7 @@ export default function Home() {
                     const [projectName, githubUser] = linkExterno.replace(/\//g, '').replace('https:', '').replace('.vercel.app', '').split('.');
                     return (
                       <li key={linkExterno}>
-                        <Widget.Select href={linkExterno} target="_blank">{`${githubUser}/${projectName}`}</Widget.Select>
+                        <Widget.Select href={`/quiz/${projectName}___${githubUser}`} bg={db.theme.colors.primary}>{`${githubUser}/${projectName}`}</Widget.Select>
                       </li>
                     );
                   })}

@@ -7,8 +7,8 @@ import {
 export default function LoadingPage() {
   return (
     <>
-      <Widget>
-        <Widget.Header bg="#656871" border="#656871">
+      <Widget border="#656871">
+        <Widget.Header bg="#656871">
           <Title />
         </Widget.Header>
         <div />

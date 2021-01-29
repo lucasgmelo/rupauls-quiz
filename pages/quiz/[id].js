@@ -12,20 +12,21 @@ export default function OtherQuiz({ dbExterno }) {
   );
 }
 
-export async function getServerSideProps() {
-  const dbExterno = await fetch('https://breaking-bad-quiz.eliasnepo.vercel.app/api/db')
+export async function getServerSideProps(context) {
+  const [projectName, githubUser] = context.query.id.split('___');
+  const dbExterno = await fetch(`https://${projectName}.${githubUser}.vercel.app/api/db`)
     .then((response) => {
       if (response.ok) {
         return response.json();
       }
       throw new Error('Falha ao obter dados');
     })
-    .then((responseObject) => responseObject)
-    .catch((err) => {
-      console.log(err);
-    });
+    .then((responseObject) => responseObject);
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 
-  console.log(dbExterno);
+  // console.log(dbExterno);
 
   return {
     props: {

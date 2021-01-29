@@ -13,7 +13,7 @@ import {
   QuizContainer,
   Man,
 } from '../../components/MainStyles';
-import QuestionWidget from '../../components/QuestionWidget';
+import QuestionWidgetExternal from '../../components/QuestionWidget/QuestionWidgetExternal';
 import useMedia from '../../../hooks/useMedia';
 import LoadingPage from '../../components/LoadingPage';
 import ResultPage from '../../components/ResultPage';
@@ -60,7 +60,7 @@ export default function QuizScreen({ dbExterno }) {
       <QuizContainer>
         {screenState === 'LOADING' && <LoadingPage />}
         {screenState === 'QUIZ' && (
-        <QuestionWidget
+        <QuestionWidgetExternal
           question={question}
           totalQuestions={totalQuestions}
           questionIndex={questionIndex}
