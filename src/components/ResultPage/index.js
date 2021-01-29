@@ -31,7 +31,12 @@ export default function ResultPage({ results }) {
           </Title>
         </Widget.Header>
         <Widget.Content>
-          <Text>Mandou bem, Lucas!</Text>
+          <Text>
+            Mandou bem,
+            {' '}
+            {router.query.name}
+            !
+          </Text>
           <Title color={db.theme.colors.purpleText}>
             Você acertou
             {' '}

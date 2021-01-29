@@ -7,7 +7,7 @@
         "image": "/q1.jpeg",
         "title": "Qual é a vencedora com o melhor histórico?",
         "description": "Considere apenas as temporadas regulares.",
-        "answer": 2,
+        "answer": 1,
         "alternatives": [
           "Violet Chachki",
           "Bianca Del Rio",
@@ -16,13 +16,75 @@
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
+        "image": "https://i.gifer.com/5JvA.gif",
+        "title": "Qual foi a queen que mais venceu lipsyncs em uma temporada regular?",
+        "description": "Shantay, you stay!",
+        "answer": 2,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+           "Coco Montrese",
+           "Jujubee",
+           "Kameron Michaels",
+           "Adore Delano"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "title": "Qual dessas foi a única a não ter 4 vitórias em uma única temporada?",
+        "description": "You're a winner, baby!",
+        "answer": 1,
+        "alternatives": [
+           "Shea Couleé",
+           "Bianca Del Rio",
+           "Gigi Goode",
+           "Sharon Needles"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "title": "Qual dessas queens não foi desclassificada ou desqualificada?",
+        "description": "Shantay, you stay!",
+        "answer": 3,
+        "alternatives": [
+           "Sherry Pie",
+           "Eureka",
+           "Willam",
+           "Cynthia Lee Fontaine"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "title": "Quais foram as queens que só tiveram vitórias em dupla numa temporada mas mesmo assim venceram a competição?",
+        "description": "Nenhuma vitória solo? :(",
+        "answer": 2,
+        "alternatives": [
+           "Yvie e Aquaria",
+           "Violet e Aquaria",
+           "Sasha e Yvie",
+           "Violet e Sasha"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "title": "Algumas queens podem voltar à competição em outra temporada, qual dessas nunca participou de duas temporadas?",
+        "description": "Participar de duas temporadas regulares é para poucas, hein!",
+        "answer": 2,
+        "alternatives": [
+           "Miss Vanjie",
+           "Cyntia Lee Fontaine",
+           "Valentina",
+           "Eureka"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "title": "Quem foi a queen responsável por criar o bordão, 'You are perfect, you are beautiful, you look like Linda Evangelista' ?",
+        "description": "D- d- d- d- did you stone those tights?",
+        "answer": 2,
+        "alternatives": [
+           "Nina Bonina",
+           "Valentina",
+           "Aja",
+           "Shea Couleé"
         ]
       }
     ],

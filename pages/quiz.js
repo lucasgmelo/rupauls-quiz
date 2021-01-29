@@ -32,14 +32,15 @@ export default function QuizPage() {
       ...results,
       result,
     ]);
+    setScreenState('LOADING');
   }
   // const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
       setScreenState('QUIZ');
-    }, 1.2 * 1000);
-  }, []);
+    }, 1 * 1000);
+  }, [results]);
 
   function handleSubmit() {
     const nextQuestion = questionIndex + 1;
