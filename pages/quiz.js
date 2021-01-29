@@ -37,9 +37,14 @@ export default function QuizPage() {
   // const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
-      setScreenState('QUIZ');
-    }, 1 * 1000);
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion === totalQuestions) {
+      setScreenState('RESULT');
+    } else {
+      setTimeout(() => {
+        setScreenState('QUIZ');
+      }, 1.5 * 1000);
+    }
   }, [results]);
 
   function handleSubmit() {
