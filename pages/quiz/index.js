@@ -1,88 +1,84 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
+// import { useRouter } from 'next/router';
 import {
   Grid, GridItem, Image, Flex,
 } from '@chakra-ui/react';
-import Input from '../../src/components/Input';
 import db from '../../db.json';
-import Widget from '../../src/components/widget';
 import GithubCorner from '../../src/components/GithubCorner';
 import {
   Page,
   Stars,
   QuizContainer,
-  Title,
-  Text,
   Man,
 } from '../../src/components/MainStyles';
+import QuestionWidget from '../../src/components/QuestionWidget';
 import useMedia from '../../hooks/useMedia';
+import LoadingPage from '../../src/components/LoadingPage';
+import ResultPage from '../../src/components/ResultPage';
 
-export default function Home() {
+export default function QuizPage() {
+  const [screenState, setScreenState] = useState('LOADING');
+  const [results, setResults] = useState([]);
   const web = useMedia('(min-width: 1080px)');
-  const router = useRouter();
-  const [name, setName] = useState('');
+  const totalQuestions = db.questions.length;
+  const [currentQuestion, setcurrentQuestion] = useState(0);
+  const questionIndex = currentQuestion;
+  const question = db.questions[questionIndex];
+
+  function addResult(result) {
+    setResults([
+      ...results,
+      result,
+    ]);
+    setScreenState('LOADING');
+  }
+
+  useEffect(() => {
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion === totalQuestions) {
+      setScreenState('RESULT');
+    } else {
+      setTimeout(() => {
+        setScreenState('QUIZ');
+      }, 1.5 * 1000);
+    }
+  }, [results]);
+
+  function handleSubmit() {
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion < totalQuestions) {
+      setcurrentQuestion(questionIndex + 1);
+    } else {
+      setScreenState('RESULT');
+    }
+  }
 
   return (
     <Page>
       <Man />
-      <Stars />
+      <Stars bgImg={db.bg} />
       <Grid>
         <GridItem>
           <QuizContainer>
-            <Widget>
-              <Widget.Header>
-                <Title>Rupaul&apos;s Drag Race Quiz</Title>
-              </Widget.Header>
-              <Widget.Content>
-                <Widget.Form
-                  onSubmit={(event) => {
-                    event.preventDefault();
-                    router.push(`/quiz?name=${name}`);
-                  }}
-                >
-                  <Text>
-                    E aí, conhece mesmo sobre Rupaul&apos;s?
-                    <i>This is your last chance to impress me.</i>
-                  </Text>
-                  <Input
-                    name="nomeDoUsuario"
-                    placeholder="Qual é o teu nome?"
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                  />
-                  <Widget.Button type="submit" disabled={name.length === 0} upper="uppercase" letter="0.1rem" color={db.theme.colors.purpleText} bg={db.theme.colors.btn}>
-                    jogar
-                  </Widget.Button>
-                </Widget.Form>
-              </Widget.Content>
-            </Widget>
-            <Widget>
-              <Widget.Content>
-                <Title color={db.theme.colors.purpleText}>
-                  Quizes da Galera
-                  {' '}
-                </Title>
-                <Text>
-                  Acesse outros quizes desenvolvidos durante a
-                  <i> 2ª Imersão Alura!</i>
-                </Text>
-                <ul>
-                  {db.external.map((linkExterno) => {
-                    const [projectName, githubUser] = linkExterno.replace(/\//g, '').replace('https:', '').replace('.vercel.app', '').split('.');
-                    return (
-                      <li key={linkExterno}>
-                        <Widget.Select href={linkExterno} target="_blank" bg={db.theme.colors.primary}>{`${githubUser}/${projectName}`}</Widget.Select>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Widget.Content>
-            </Widget>
+            {screenState === 'LOADING' && <LoadingPage />}
+
+            {screenState === 'QUIZ' && (
+            <QuestionWidget
+              question={question}
+              totalQuestions={totalQuestions}
+              questionIndex={questionIndex}
+              onSubmit={handleSubmit}
+              addResult={addResult}
+            />
+            )}
+
+            {screenState === 'RESULT' && <ResultPage results={results} />}
           </QuizContainer>
         </GridItem>
-        {web && (
-          <GridItem colStart={2} boxSize="100%">
+        {web && !(screenState === 'LOADING') && (
+          <GridItem colStart={2} width="100%" height="90vh">
             <Flex justifyContent="center" alignItems="center" boxSize="100%">
               <Image
                 src={db.logo}
