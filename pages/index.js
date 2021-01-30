@@ -113,7 +113,8 @@ export default function Home() {
         {web && (
           <GridItem
             colStart={2}
-            boxSize="100%"
+            height="90vh"
+            width="100%"
             as={motion.section}
             transition={{ duration: 0.5 }}
             variants={{

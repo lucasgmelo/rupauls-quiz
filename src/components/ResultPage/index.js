@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable consistent-return */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { useRouter } from 'next/router';
@@ -8,9 +11,18 @@ import {
   Text,
 } from '../MainStyles';
 import db from '../../../db.json';
+import { Line } from './styles';
 
 export default function ResultPage({ results }) {
   const router = useRouter();
+  let number;
+
+  function message(value) {
+    if (value <= 1) return <Text>Af, não assiste rupaul mesmo ne? Se quiser ver, comece pela 9ª temporada</Text>;
+    if (value >= 2 && value < 5) return <Text>É gataaa, ta sabendo um pouco né? Mereceu o Shantay you stay.</Text>;
+    if (value > 4 && value < 7) return <Text>É ELAAAA, WERK QUEEN, AVISA QUE É SHANTAY YOU STAY!!</Text>;
+    if (value === 7) return <Text>SHOOT!! CONDRAGULATIONS YOU ARE THE WINNER OF THIS QUIZ CHALLENGE! NOW PRANCE MY QUEEN</Text>;
+  }
 
   return (
     <>
@@ -32,7 +44,7 @@ export default function ResultPage({ results }) {
         </Widget.Header>
         <Widget.Content>
           <Text>
-            Mandou bem,
+            Arrasou,
             {' '}
             {router.query.name}
             !
@@ -45,23 +57,25 @@ export default function ResultPage({ results }) {
               if (isWright) {
                 return somatoriaAtual + 1;
               }
+              number = 7;
               return somatoriaAtual;
             }, 0)}
             {' '}
             questões, parabéns!
           </Title>
-          {results.map((result, index) => (
-            <ul>
-              <li key={result}>
-                #
-                {index + 1}
-                {' '}
-                resultado:
-                {' '}
-                {result === true ? 'acertou' : 'errou' }
-              </li>
-            </ul>
-          ))}
+          {message(number)}
+          <Widget.Button
+            upper="uppercase"
+            letter="0.05rem"
+            color={db.theme.colors.purpleText}
+            bg={db.theme.colors.btn}
+            onClick={(event) => {
+              event.preventDefault();
+              router.push('/');
+            }}
+          >
+            Voltar ao início
+          </Widget.Button>
         </Widget.Content>
       </Widget>
     </>

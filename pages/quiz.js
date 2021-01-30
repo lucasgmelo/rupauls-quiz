@@ -20,7 +20,7 @@ import ResultPage from '../src/components/ResultPage';
 
 export default function QuizPage() {
   const [screenState, setScreenState] = useState('LOADING');
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState([true, true, false]);
   const web = useMedia('(min-width: 1080px)');
   const totalQuestions = db.questions.length;
   const [currentQuestion, setcurrentQuestion] = useState(0);
@@ -42,7 +42,7 @@ export default function QuizPage() {
       setScreenState('RESULT');
     } else {
       setTimeout(() => {
-        setScreenState('QUIZ');
+        setScreenState('RESULT');
       }, 1.5 * 1000);
     }
   }, [results]);
@@ -59,7 +59,7 @@ export default function QuizPage() {
   return (
     <Page>
       <Man />
-      <Stars />
+      <Stars bgImg={db.bg} />
       <Grid>
         <GridItem>
           <QuizContainer>
@@ -79,7 +79,7 @@ export default function QuizPage() {
           </QuizContainer>
         </GridItem>
         {web && !(screenState === 'LOADING') && (
-          <GridItem colStart={2} boxSize="100%">
+          <GridItem colStart={2} width="100%" height="90vh">
             <Flex justifyContent="center" alignItems="center" boxSize="100%">
               <Image
                 src={db.logo}
