@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 /* eslint-disable max-len */
 /* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
