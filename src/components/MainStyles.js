@@ -118,6 +118,8 @@ export const Success = styled.div`
 
   margin-top: 20px;
 
+  transition: all .3s ease;
+
   justify-self: center;
 
   display: flex;
@@ -149,6 +151,8 @@ export const Error = styled.div`
   margin-top: 20px;
 
   justify-self: center;
+
+  transition: all .3s ease;
 
   display: flex;
   justify-content: center;

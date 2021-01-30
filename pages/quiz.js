@@ -20,7 +20,7 @@ import ResultPage from '../src/components/ResultPage';
 
 export default function QuizPage() {
   const [screenState, setScreenState] = useState('LOADING');
-  const [results, setResults] = useState([true, true, false]);
+  const [results, setResults] = useState([]);
   const web = useMedia('(min-width: 1080px)');
   const totalQuestions = db.questions.length;
   const [currentQuestion, setcurrentQuestion] = useState(0);
@@ -42,7 +42,7 @@ export default function QuizPage() {
       setScreenState('RESULT');
     } else {
       setTimeout(() => {
-        setScreenState('RESULT');
+        setScreenState('QUIZ');
       }, 1.5 * 1000);
     }
   }, [results]);

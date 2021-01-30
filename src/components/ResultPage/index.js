@@ -18,10 +18,35 @@ export default function ResultPage({ results }) {
   let number;
 
   function message(value) {
-    if (value <= 1) return <Text>Af, não assiste rupaul mesmo ne? Se quiser ver, comece pela 9ª temporada</Text>;
-    if (value >= 2 && value < 5) return <Text>É gataaa, ta sabendo um pouco né? Mereceu o Shantay you stay.</Text>;
-    if (value > 4 && value < 7) return <Text>É ELAAAA, WERK QUEEN, AVISA QUE É SHANTAY YOU STAY!!</Text>;
-    if (value === 7) return <Text>SHOOT!! CONDRAGULATIONS YOU ARE THE WINNER OF THIS QUIZ CHALLENGE! NOW PRANCE MY QUEEN</Text>;
+    let msg;
+    switch (value) {
+      case 0:
+        msg = 'Af, não assiste rupaul mesmo ne? Se quiser ver, comece pela 9ª temporada';
+        break;
+      case 1:
+  <Text>Af, não assiste rupaul mesmo ne? Se quiser ver, comece pela 9ª temporada</Text>;
+        break;
+      case 2:
+        msg = 'Será que é alguém que assiste e não presta atenção aos detalhes ou só chutou?';
+        return msg;
+        break;
+      case 3:
+  <Text>É gataaa, ta sabendo médio né? Shantay you stay.</Text>;
+        break;
+      case 4:
+  <Text>TOOT! you are the winner of this week MINI challenge</Text>;
+        break;
+      case 5:
+  <Text>É ELAAAA, WERK QUEEN, AVISA QUE É SHANTAY YOU STAY!!</Text>;
+        break;
+      case 6:
+  <Text>YOU DIDN&apos;T COME TO PLAY, YOU CAME TO SLAAAAY!!</Text>;
+        break;
+      case 7:
+  <Text>SHOOT!! CONDRAGULATIONS YOU ARE THE WINNER OF THIS QUIZ CHALLENGE! NOW PRANCE MY QUEEN</Text>;
+        break;
+      default:
+    }
   }
 
   return (
@@ -57,13 +82,15 @@ export default function ResultPage({ results }) {
               if (isWright) {
                 return somatoriaAtual + 1;
               }
-              number = 7;
+              number = somatoriaAtual;
               return somatoriaAtual;
             }, 0)}
             {' '}
             questões, parabéns!
           </Title>
-          {message(number)}
+          <Text>
+            {message(number)}
+          </Text>
           <Widget.Button
             upper="uppercase"
             letter="0.05rem"
