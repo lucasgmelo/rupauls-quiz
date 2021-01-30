@@ -70,7 +70,7 @@ export default function QuizScreen({ dbExterno }) {
         />
         )}
 
-        {screenState === 'RESULT' && <ResultPage results={results} />}
+        {screenState === 'RESULT' && <ResultPage results={results} other={dbExterno} />}
       </QuizContainer>
 
       <GithubCorner projectUrl="https://github.com/lucasgmelo" />

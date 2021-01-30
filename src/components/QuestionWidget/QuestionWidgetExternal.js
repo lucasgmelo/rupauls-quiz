@@ -113,7 +113,7 @@ export default function QuestionWidget({
                   data-selected={isSelected}
                   data-status={isFormSubmited && alternativeStatus}
                   bg={other.theme.colors.primary}
-                  other={other}
+                  bgHover={other.theme.colors.secondary}
                 >
                   <input
                     style={{ display: 'none' }}

@@ -115,7 +115,7 @@ Widget.Select = styled.a`
 
   &:hover {
     transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
-    background: ${(props) => (props.other ? `${props.other.theme.colors.secondary}` : '#B791F9')};
+    background: ${(props) => props.bgHover};
   }
 `;
 

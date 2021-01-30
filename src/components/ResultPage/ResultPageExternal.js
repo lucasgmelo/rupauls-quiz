@@ -6,27 +6,51 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { Image } from '@chakra-ui/react';
+import styled from 'styled-components';
 import Widget from '../widget';
 import {
   Title,
   Text,
 } from '../MainStyles';
 import db from '../../../db.json';
-import { Line } from './styles';
 
-export default function ResultPage({ results }) {
+export default function ResultPage({ results, other }) {
   const router = useRouter();
-  let number;
 
-  function message(value) {
-    if (value === 0 || value === 1) return <Text>Af, não assiste rupaul mesmo ne? Se quiser ver, comece pela 9ª temporada</Text>;
-    if (value === 2) return <Text>Será que é alguém que assiste e não presta atenção aos detalhes ou só chutou? 👀</Text>;
-    if (value === 3) return <Text>É gataaa, ta sabendo médio né? Shantay you stay.</Text>;
-    if (value === 4) return <Text>TOOT! you are the winner of this week MINI challenge</Text>;
-    if (value === 5) return <Text>É ELAAAA, WERK QUEEN, AVISA QUE É SHANTAY YOU STAY!!</Text>;
-    if (value === 6) return <Text>YOU DIDN&apos;T COME TO PLAY, YOU CAME TO SLAAAAY!!</Text>;
-    if (value === 7) return <Text>SHOOT!! CONDRAGULATIONS YOU ARE THE WINNER OF THIS QUIZ CHALLENGE! NOW PRANCE MY QUEEN</Text>;
+  Widget.External = styled.button`
+
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  box-shadow: ${(props) => (props.disabled ? `${db.theme.shadowDisabled}` : `${db.theme.shadow}`)};
+ 
+  width: 100%;
+  height: 30px;
+
+  margin: 15px 0 0 0;
+
+  border-radius: 4px;
+  border: none;
+
+  text-transform: ${(props) => props.upper || 'none'};
+  letter-spacing: ${(props) => props.letter || 'none'};
+
+  color: ${(props) => props.color || 'white'};
+
+  background: ${(props) => props.bg};
+
+  transition: all .3s ease;
+  outline: none;
+
+  &:hover {
+    transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
+    background: ${(props) => props.bgHover};
   }
+
+  &:active {
+    transform: translateY(0px);
+    opacity: 0.9;
+  }
+
+`;
 
   return (
     <>
@@ -61,25 +85,24 @@ export default function ResultPage({ results }) {
               if (isWright) {
                 return somatoriaAtual + 1;
               }
-              number = 1;
               return somatoriaAtual;
             }, 0)}
             {' '}
             questões, parabéns!
           </Title>
-          {message(number)}
-          <Widget.Button
+          <Widget.External
             upper="uppercase"
-            letter="0.05rem"
-            color={db.theme.colors.purpleText}
-            bg={db.theme.colors.btn}
+            letter="0.2rem"
+            color={other.theme.colors.contrastText}
+            bg={other.theme.colors.primary}
+            bgHover={other.theme.colors.secondary}
             onClick={(event) => {
               event.preventDefault();
               router.push('/');
             }}
           >
             Voltar ao início
-          </Widget.Button>
+          </Widget.External>
         </Widget.Content>
       </Widget>
     </>
