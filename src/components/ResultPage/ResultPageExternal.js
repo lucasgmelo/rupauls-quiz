@@ -54,8 +54,12 @@ export default function ResultPage({ results, other }) {
 
   return (
     <>
-      <Widget>
-        <Widget.Header>
+      <Widget
+        border={other.theme.colors.primary}
+      >
+        <Widget.Header
+          bg={other.theme.colors.primary}
+        >
           <Image
             src="/Back.png"
             alt="Voltar"
@@ -77,7 +81,7 @@ export default function ResultPage({ results, other }) {
             {router.query.name}
             !
           </Text>
-          <Title color={db.theme.colors.purpleText}>
+          <Title color={other.theme.colors.primary}>
             Você acertou
             {' '}
             {results.reduce((somatoriaAtual, resultAtual) => {
@@ -92,7 +96,7 @@ export default function ResultPage({ results, other }) {
           </Title>
           <Widget.External
             upper="uppercase"
-            letter="0.2rem"
+            letter="0.05rem"
             color={other.theme.colors.contrastText}
             bg={other.theme.colors.primary}
             bgHover={other.theme.colors.secondary}
