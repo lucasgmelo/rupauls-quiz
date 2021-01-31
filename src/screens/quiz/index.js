@@ -16,7 +16,7 @@ import {
 import QuestionWidgetExternal from '../../components/QuestionWidget/QuestionWidgetExternal';
 import useMedia from '../../../hooks/useMedia';
 import LoadingPage from '../../components/LoadingPage';
-import ResultPage from '../../components/ResultPage';
+import ResultPageExternal from '../../components/ResultPage/ResultPageExternal';
 
 export default function QuizScreen({ dbExterno }) {
   const [screenState, setScreenState] = useState('LOADING');
@@ -70,7 +70,7 @@ export default function QuizScreen({ dbExterno }) {
         />
         )}
 
-        {screenState === 'RESULT' && <ResultPage results={results} other={dbExterno} />}
+        {screenState === 'RESULT' && <ResultPageExternal results={results} other={dbExterno} />}
       </QuizContainer>
 
       <GithubCorner projectUrl="https://github.com/lucasgmelo" />
