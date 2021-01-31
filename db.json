@@ -89,8 +89,9 @@
       }
     ],
     "external": [
-      "https://rpdr-quiz.lucasgmelo.vercel.app/",
-      "https://aluraquiz-css.omariosouto.vercel.app/"
+      "https://kimetsuquiz-base.lilitbandeira.vercel.app/",
+      "https://aluraquiz-css.omariosouto.vercel.app/",
+      "https://bbbquiz.kpmnta.vercel.app/"
     ],
     "theme": {
       "colors": {

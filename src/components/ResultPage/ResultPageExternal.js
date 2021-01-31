@@ -76,10 +76,7 @@ export default function ResultPage({ results, other }) {
         </Widget.Header>
         <Widget.Content>
           <Text>
-            Arrasou,
-            {' '}
-            {router.query.name}
-            !
+            Arrasou!
           </Text>
           <Title color={other.theme.colors.primary}>
             Você acertou

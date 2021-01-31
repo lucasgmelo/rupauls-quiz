@@ -12,7 +12,6 @@ import {
   Text,
 } from '../MainStyles';
 import db from '../../../db.json';
-import { Line } from './styles';
 
 export default function ResultPage({ results }) {
   const router = useRouter();
@@ -61,7 +60,7 @@ export default function ResultPage({ results }) {
               if (isWright) {
                 return somatoriaAtual + 1;
               }
-              number = 1;
+              number = somatoriaAtual;
               return somatoriaAtual;
             }, 0)}
             {' '}
