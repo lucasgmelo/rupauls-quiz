@@ -76,6 +76,7 @@ export default function QuestionWidget({
                   data-selected={isSelected}
                   data-status={isFormSubmited && alternativeStatus}
                   bg={db.theme.colors.primary}
+                  bgHover="#B791F9"
                 >
                   <input
                     style={{ display: 'none' }}
