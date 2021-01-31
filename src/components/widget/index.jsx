@@ -71,6 +71,8 @@ Widget.Button = styled.button`
   transition: all .3s ease;
   outline: none;
 
+  z-index: 100;
+
   &:hover {
     transform: ${(props) => (props.disabled ? '' : 'translateY(-1px)')};
     background: ${(props) => (props.disabled ? '' : 'linear-gradient(90.8deg, #7DD4B2 -33.3%, #7DD4DE 104.64%);')}; 
